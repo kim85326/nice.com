@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>台東民宿協會</title>
+	<script type='text/javascript' src='https://traiwan.com/library/jquery/base/jquery-1.10.2.min.js?v=1438571031'></script>
+	<script type='text/javascript' src='https://traiwan.com/library/jquery/base/jquery-migrate-1.2.1.min.js?v=1438571031'></script>
+	<script type='text/javascript' src='https://traiwan.com/library/jquery/ui/jquery-ui-1.11.4.min.js?v=1438571031'></script>
+	<script type='text/javascript' src='https://traiwan.com/library/jquery/jquery_confirm/jquery.dialogOptions.js?v=1497079877'></script>
+	<link type ='text/css' rel='stylesheet' href='https://traiwan.com/library/jquery/ui/css/traiwan-v6/jquery-ui-1.11.4.min.css?v=1438571031'/>
+	<link type ='text/css' rel='stylesheet' href='https://traiwan.com/library/fontawesome/css/font-awesome.min.css'/>
+	<script type='text/javascript' src='https://traiwan.com/library/bootstrap/base/js/bootstrap.min.js?v=1456793019'></script>
+	<link type ='text/css' rel='stylesheet' href='https://traiwan.com/library/bootstrap/base/css/traiwan_bootstrap_hack_previous.css?v=1458910741'/>
+	<link type ='text/css' rel='stylesheet' href='https://traiwan.com/library/bootstrap/base/css/bootstrap.min.css?v=1484734235'/>
+	<link type ='text/css' rel='stylesheet' href='https://traiwan.com/library/bootstrap/base/css/traiwan_bootstrap_hack_after.css?v=1458910741'/>
+	<link type ='text/css' rel='stylesheet' href='https://traiwan.com/library/bootstrap/base/css/google_fonts.css?v=1456793019'/>
+	<style>
+		/********** navbar **********/
+		.navbar {
+			min-height: 70px;
+			margin-bottom: 0px;
+			background-color: rgba(64,110,162, 0.5);
+			border: none;
+		}
+		.navbar-brand {
+			padding-top: 30px;
+			padding-left: 50px;
+			height: auto;
+		}
+		.navbar-brand div:nth-child(1) {
+			font-weight: bold;
+			letter-spacing: 3px;
+			font-size: 24px;
+		}
+		.navbar-brand div:nth-child(2) {
+			margin-top: 5px;
+			letter-spacing: 2px;
+			font-size: 14px;
+		}
+		.navbar-default .navbar-brand {
+			color: white;
+		}
+		.navbar-default .navbar-nav>li>a {
+			font-weight: bold;
+			letter-spacing: 2px;
+			color: white;
+		}
+		.navbar-default .navbar-toggle {
+			padding-top: 30px;
+			border-color: transparent;
+		}
+		.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+			background-color: transparent;
+		}
+		.navbar-default .navbar-toggle .icon-bar {
+			background-color: white;
+		}
+		/********** section **********/
+		.title {
+			margin: 60px auto;
+			text-align: center;
+			background-color: #406ea2;
+			color: #fff;
+			font-weight: bold;
+			width: 200px;
+			height: 35px;
+			line-height: 35px;
+			letter-spacing: 3px;
+		}
+
+		#member_list {
+			margin-top: 140px;
+		}
+
+		select {
+			margin-top: 60px;
+		}
+
+		.thumbnail{
+			height: 300px;
+			border: none;
+			background-color: transparent;
+		}
+
+		.thumbnail img{
+			width: 100%;
+		}
+
+		/********** footer **********/
+
+		#contact_icon {
+			margin: 60px auto;
+			text-align: center;
+			cursor: pointer;
+		}
+
+		#contact_icon img {
+			width: 30px;
+			margin-right: 15px;
+			margin-left: 15px;
+		}
+
+		#footer_bottom {
+			height: 50px;
+			line-height: 49px;
+			text-align: center;
+			background-color: #406ea2;
+		}
+		#footer_bottom a {
+			color: white;
+			text-decoration: none;
+			letter-spacing: 2px;
+			font-size: 1.5rem;
+		}
+
+		/********** 電腦版微調 **********/	
+		@media screen and (min-width: 768px){
+			.navbar-nav>li>a{
+				padding-top: 35px
+			}
+			.navbar-right {
+				margin-right: 30px;
+			}
+		}
+		/********** 平板微調 **********/
+		@media screen and (min-width: 481px) and (max-width: 767px){
+			.thumbnail{
+				height: 350px;
+			}
+		}
+		/********** 手機版微調 **********/
+		@media screen and (max-width: 480px){
+			.navbar-brand {
+				padding-left: 30px;
+			}
+			.thumbnail{
+				height: 260px;
+			}
+		}
+	</style>	
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-default navbar-fixed-top">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="./index.html">
+		      	<div>台東民宿協會</div>
+		      	<div>Taitung Homestay Accociation</div>
+		      </a>
+		    </div>
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="./index.html#information">協會簡介</a></li>
+		        <li><a href="./data/組織章程.pdf" target="_blank">組織章程</a></li>
+		        <li><a href="./directors.html">理監事名冊</a></li>
+		        <li><a href="./member_list.html">會員名冊</a></li>
+		        <li><a href="./index.html#contact">聯絡協會</a></li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+	</header>
+
+	<section>
+		<div id="member_list">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-push-2">
+						<div class="row">
+							<div class="col-xs-8 col-xs-push-2">
+								<div class="title">
+									會員名冊
+								</div>
+							</div>
+							<div class="col-xs-2 pull-right">
+								<select id="city" class="form-control input-sm">
+									<option value="" checked>全部</option>
+									<option value="">台東市</option>
+									<option value="">綠島鄉</option>
+									<option value="">蘭嶼鄉</option>
+									<option value="">延平鄉</option>
+									<option value="">卑南鄉</option>
+									<option value="">鹿野鄉</option>
+									<option value="">關山鎮</option>
+									<option value="">海端鄉</option>
+									<option value="">池上鄉</option>
+									<option value="">東河鄉</option>
+									<option value="">成功鎮</option>
+									<option value="">長濱鄉</option>
+									<option value="">太麻里鄉</option>
+									<option value="">金峰鄉</option>
+									<option value="">大武鄉</option>
+									<option value="">達仁鄉</option>
+								</select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/台東百分百渡假民宿.gif" alt="台東百分百渡假民宿">
+									<div class="caption">
+										<h5>
+											台東百分百渡假民宿
+										</h5>
+										<p>
+											089-229776<br>
+											台東縣台東市新站三街100號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/台東馬亨亨民宿.gif" alt="台東馬亨亨民宿">
+									<div class="caption">
+										<h5>
+											台東馬亨亨民宿
+										</h5>
+										<p>
+											0921-250249(中華)<br>
+											台東縣台東市志航路412巷26弄27號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/台東諾園民宿.gif" alt="台東諾園民宿">
+									<div class="caption">
+										<h5>
+											台東諾園民宿
+										</h5>
+										<p>
+											089-226455<br>
+											台東縣台東市志航路一段552巷73號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/台東涵園民宿.gif" alt="台東涵園民宿">
+									<div class="caption">
+										<h5>
+											台東涵園民宿
+										</h5>
+										<p>
+											089-550616<br>
+											台東縣鹿野鄉龍田村南三路115號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/台東歡喜精品雙併別墅.gif" alt="台東歡喜精品雙併別墅">
+									<div class="caption">
+										<h5>
+											台東歡喜精品雙併別墅
+										</h5>
+										<p>
+											0918-483577<br>
+											台東縣台東市豐榮路90巷23號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/台東星棧101民宿.gif" alt="台東星棧101民宿">
+									<div class="caption">
+										<h5>
+											台東星棧101民宿
+										</h5>
+										<p>
+											089-238101<br>
+											台東縣台東市興盛路349號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/北緯22度休憩民宿.gif" alt="北緯22度休憩民宿">
+									<div class="caption">
+										<h5>
+											北緯22度休憩民宿(北緯二十二度休閒事業有限公司)
+										</h5>
+										<p>
+											0905-171738<br>
+											台東縣台東市蘭州街123號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/台東鹿野高台民宿.gif" alt="台東鹿野．高台民宿">
+									<div class="caption">
+										<h5>
+											台東鹿野．高台民宿
+										</h5>
+										<p>
+											0937-396455<br>
+											台東縣鹿野鄉永安村高台路10巷5號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/墾丁藝遊未境包棟主題旅宿.gif" alt="墾丁藝遊未境包棟主題旅宿">
+									<div class="caption">
+										<h5>
+											墾丁藝遊未境包棟主題旅宿
+										</h5>
+										<p>
+											0916-919117<br>
+											屏東縣恆春鎮恆西路33巷105弄6號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											阿里山掌聲響起民宿|訂房金專用
+										</h5>
+										<p>
+											嘉義縣阿里山鄉樂野村8鄰樂野209-6號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											水中天民宿|訂房金專用
+										</h5>
+										<p>
+											0936-305985<br>
+											南投縣埔里鎮6鄰鯉魚路28-16號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											三石山小棧|訂房金專用
+										</h5>
+										<p>
+											049-2754382<br>
+											南投縣鹿谷鄉和雅村愛鄉路2-16號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											好聖地渡假會館森林小木屋|訂房金專用
+										</h5>
+										<p>
+											049-2612409<br>
+											南投縣鹿谷鄉內湖村興產路23-1號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/台東加走灣旅店.gif" alt="台東加走灣旅店">
+									<div class="caption">
+										<h5>
+											台東加走灣旅店
+										</h5>
+										<p>
+											089-832858<br>
+											台東縣長濱鄉長濱路286號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											杉原民宿
+										</h5>
+										<p>
+											089-280033<br>
+											台東縣卑南鄉富山村12鄰杉原26號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											台東小雅民宿
+										</h5>
+										<p>
+											089-280097<br>
+											台東縣台東市富岡里松江路1段71巷16號　<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											英惠原藝民宿
+										</h5>
+										<p>
+											089-771277<br>
+											台東縣太麻里鄉金崙14鄰9-6號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											台東玉米的窩
+										</h5>
+										<p>
+											089-552224<br>
+											台東縣鹿野鄉永安村永安75號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											敦親牧鄰民宿
+										</h5>
+										<p>
+											089-571122<br>
+											台東縣卑南鄉明峰村文泰路50巷6號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											地球村民宿
+										</h5>
+										<p>
+											089-841351<br>
+											台東縣成功鎮信義里都歷路312號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											溫泉民宿
+										</h5>
+										<p>
+											0933-692977<br>
+											台東縣卑南鄉溫泉村龍泉路139巷5弄15號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											台東山采家民宿
+										</h5>
+										<p>
+											0919-873770<br>
+											台東縣太麻里鄉三和村漁場138號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											艾蘭哥爾咖啡生活館
+										</h5>
+										<p>
+											089-322246<br>
+											台東縣台東市勝利街109號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											初春民宿
+										</h5>
+										<p>
+											089-331626<br>
+											台東縣台東市鐵花路175號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											台東21國際渡假村
+										</h5>
+										<p>
+											089-550211<br>
+											台東縣鹿野鄉永安村永樂路306巷7號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											東之緣民宿
+										</h5>
+										<p>
+											089-329051<br>
+											台東縣台東市鐵花路102號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											遠山功夫民宿
+										</h5>
+										<p>
+											089-772122<br>
+											台東縣太麻里鄉金崙村14鄰17號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											候鳥飛行民宿
+										</h5>
+										<p>
+											0972-162040<br>
+											台東縣卑南鄉太平村和平路360巷17號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											御皇米會館民宿
+										</h5>
+										<p>
+											089-801588<br>
+											台東縣長濱鄉南烏石鼻46-5號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											台東丹堤溫泉會館
+										</h5>
+										<p>
+											089-771759<br>
+											台東縣太麻里鄉多良村10鄰多良2-2號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											台東緣羊軒民宿
+										</h5>
+										<p>
+											0930-133763<br>
+											台東縣台東市南一街96號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											福樟檜木屋度假村
+										</h5>
+										<p>
+											089-841639<br>
+											台東縣成功鎮信義里22鄰豐田路27-5號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											都蘭紅瓦厝民宿
+										</h5>
+										<p>
+											089-530318<br>
+											台東縣東河鄉都蘭村18鄰57之3號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											美濃山莊
+										</h5>
+										<p>
+											089-570169<br>
+											台東縣卑南鄉美濃村高台路3號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											真柄民宿	
+										</h5>
+										<p>
+											0922-514383<br>
+											台東縣長濱鄉三間村真柄1鄰37-5號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											立品民宿	
+										</h5>
+										<p>
+											089-550487<br>
+											台東縣鹿野鄉永安村永安路566號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											日昇花園部落
+										</h5>
+										<p>
+											089-781118<br>
+											台東縣太麻里鄉太麻里街119-1號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											米之谷溫泉民宿
+										</h5>
+										<p>
+											089-772067<br>
+											台東縣金峰鄉賓茂村3鄰43號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											台東巧雅婷民宿
+										</h5>
+										<p>
+											0922-709873<br>
+											台東縣台東市南一街100號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											木頭魚民宿
+										</h5>
+										<p>
+											0919-643338<br>
+											台東縣成功鎮中華路125號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											玫瑰丘屋	
+										</h5>
+										<p>
+											089-516533<br>
+											台東縣台東市知本里富榮路39號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											尚武民宿
+										</h5>
+										<p>
+											089-792565<br>
+											台東縣大武鄉尚武村環港路66號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											金崙鄉村民宿
+										</h5>
+										<p>
+											089-772198<br>
+											台東縣太麻里鄉金崙村353號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											台東愛加倍民宿
+										</h5>
+										<p>
+											0963-977399<br>
+											台東縣台東市樂利路38號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											後山傳奇餐廳
+										</h5>
+										<p>
+											089-235658<br>
+											台東縣台東市中興路一段186號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											芩池軒山莊
+										</h5>
+										<p>
+											089-862100<br>
+											台東縣池上鄉中山路133號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											台東竹湖山居民宿
+										</h5>
+										<p>
+											089-832383<br>
+											台東縣長濱鄉竹湖村1鄰41號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											台東好朋友民宿
+										</h5>
+										<p>
+											0932-661688<br>
+											台東縣台東市更生北路131號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											台東樂活美學民宿
+										</h5>
+										<p>
+											0963-310930<br>
+											台東縣台東市文昌路61號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/A-YA-WAN.gif" alt="A-YA-WAN">
+									<div class="caption">
+										<h5>
+											台東知本‧ㄚㄧㄚ旺(A-YA-WAN)溫泉渡假村
+										</h5>
+										<p>
+											089-515827<br>
+											台東縣卑南鄉溫泉村龍泉路136號　<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											初鹿溫馨小棧
+										</h5>
+										<p>
+											089-571515<br>
+											台東縣卑南鄉初鹿村初鹿三街60號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											都歷民宿
+										</h5>
+										<p>
+											089-841856<br>
+											台東縣成功鎮都歷路22之6號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											太陽屋民宿
+										</h5>
+										<p>
+											089-896043<br>
+											台東縣東河鄉東河村北東河125號(11線132k)<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											台東連記民宿
+										</h5>
+										<p>
+											089-550808<br>
+											台東縣鹿野鄉永安村高台路100號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											台東鹿野詠情民宿
+										</h5>
+										<p>
+											089-550555<br>
+											台東縣鹿野鄉龍田村光榮路317號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/台東民宿筆筒樹山莊.gif" alt="台東民宿．筆筒樹山莊">
+									<div class="caption">
+										<h5>
+											台東民宿．筆筒樹山莊
+										</h5>
+										<p>
+											0955-789909<br>
+											台東縣鹿野鄉永安村鹿寮路18號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											有時回家民宿
+										</h5>
+										<p>
+											089-222212<br>
+											台東縣台東市正氣北路746巷231號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/台東蘿斯瑪莉民宿.gif" alt="台東蘿斯瑪莉民宿">
+									<div class="caption">
+										<h5>
+											台東蘿斯瑪莉民宿
+										</h5>
+										<p>
+											0982-899669<br>
+											台東縣台東市興安路一段185號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											大巴六九藥用植物園區
+										</h5>
+										<p>
+											089-380341<br>
+											台東縣卑南鄉泰安村19鄰543-8號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											山豬園果子狸咖啡農場
+										</h5>
+										<p>
+											089-571179<br>
+											台東縣卑南鄉明峰村龍過脈112號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											台東東太陽山莊
+										</h5>
+										<p>
+											089-772128<br>
+											台東縣太麻里鄉金崙溫泉1-6號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											金針山旺旺庭園咖啡民宿
+										</h5>
+										<p>
+											089-783258<br>
+											台東縣太麻里鄉大王村佳崙242號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											蘭嶼巴拉冠民宿
+										</h5>
+										<p>
+											089-732976<br>
+											台東縣蘭嶼鄉東清村野銀84號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											南竹湖會館
+										</h5>
+										<p>
+											089-896638<br>
+											台東縣東河鄉東河村南東河421號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											台東3隻小豬民宿
+										</h5>
+										<p>
+											0910-559157<br>
+											台東縣台東市漢中街185巷86號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											驛亭民宿
+										</h5>
+										<p>
+											089-310108<br>
+											台東縣台東市四維路三段116號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											摩天休閒農場
+										</h5>
+										<p>
+											089-938056<br>
+											台東縣海端鄉利稻村摩天1號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											台東宜興園民宿	
+										</h5>
+										<p>
+											089-561487<br>
+											台東縣延平鄉桃園村昇平路6之1號　<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/台東茉莉花隅民宿.gif" alt="台東茉莉花隅民宿">
+									<div class="caption">
+										<h5>
+											台東茉莉花隅民宿
+										</h5>
+										<p>
+											0921-159164-余小姐<br>
+											台東縣台東市樂利路36號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											利多山休閒山莊
+										</h5>
+										<p>
+											089-325734<br>
+											台東縣台東市正氣路441號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											鹿台花園山莊民宿
+										</h5>
+										<p>
+											089-550528<br>
+											台東縣鹿野鄉永安村高台路42巷89弄5號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											台東福樟紅檜木屋民宿
+										</h5>
+										<p>
+											089-841639<br>
+											台東縣成功鎮豐田路27之5號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											梅花鹿民宿
+										</h5>
+										<p>
+											089-850192<br>
+											台東縣成功鎮大同路99之3號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											台東初鹿椰子林
+										</h5>
+										<p>
+											089-571981<br>
+											台東縣卑南鄉明峰村龍過<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											台東向陽山民宿
+										</h5>
+										<p>
+											089-383626<br>
+											台東縣卑南鄉泰安59號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											台東晴耕雨讀人文民宿
+										</h5>
+										<p>
+											0916-101261<br>
+											00912-788200<br>
+											台東縣台東市志航路1段477巷35號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											後山休閒綠屋
+										</h5>
+										<p>
+											089-510318<br>
+											089-347371<br>
+											台東縣台東市青海路四段2巷200弄153號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											台東別有天民宿
+										</h5>
+										<p>
+											089-326988<br>
+											台東縣台東市仁八街26號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											金針山順其自然農場
+										</h5>
+										<p>
+											089-782947<br>
+											台東縣太麻里鄉大王村佳崙383號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											泰安農場
+										</h5>
+										<p>
+											089-385279<br>
+											台東縣卑南鄉泰安村19鄰542號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											康士美民宿
+										</h5>
+										<p>
+											089-227222<br>
+											台東縣台東市更生北路306巷2號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/台東佳音民宿.gif" alt="台東佳音民宿">
+									<div class="caption">
+										<h5>
+											台東佳音民宿
+										</h5>
+										<p>
+											089-220321<br>
+											台東縣台東市志航路一段111巷1號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											泰豫聚寶坊民宿
+										</h5>
+										<p>
+											0932-789570<br>
+											台東縣鹿野鄉永安村永樂路119號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											東海岸渡假中心
+										</h5>
+										<p>
+											0937-329606<br>
+											台東縣東河鄉興昌村3鄰興隆54號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/default.png" alt="">
+									<div class="caption">
+										<h5>
+											采楓觀海度假民宿
+										</h5>
+										<p>
+											0932-930089<br>
+											台東縣成功鎮信義里都歷路1-26號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</section>
+
+	<footer>
+		<div id="contact_icon">
+			<a href="" target="_blank" id="fb_link">
+				<img src="./data/image/facebook.png" alt="facebook link">
+			</a>
+		<!-- <a href="" id="instagram_link">
+			<img src="./data/image/instagram.png" alt="instagram link">
+		</a> -->
+		<!-- <a href="" id="twitter">
+			<img src="./data/image/twitter.png" alt="twitter link">
+		</a> -->
+			<a href="" id="mail_link">
+				<img src="./data/image/mail.png" alt="mail link">
+			</a>
+			<a href="" id="phone_link">
+				<img src="./data/image/phone.png" alt="phone link">
+			</a>
+		</div>
+		<div id="footer_bottom">
+			<div class="container">
+				<a href="https://traiwan.com">
+					TRAIWAN 雲端旅宿系統提供
+					<span class="hidden-xs">©2018 創炎資訊科技 Xaduro Inc. All Rights Reserved</span>
+				</a>
+			</div>
+		</div>
+	</footer>
+
+
+	<script>
+		$('.carousel').carousel({
+			interval: 2000
+		});
+
+		$('#city').change(function(event) {
+			$('#error_mes').remove();
+			$('.member').hide();
+			var city = $("#city option:selected").text();
+			if(city == "全部"){
+				$('.member').show();
+			}else{
+				var exist = 0;
+				$('.member').each(function(index, el) {
+					var text = $(this).find('p').text();
+					if( text.indexOf(city) != -1 ){
+						$(this).show();
+						exist = 1;
+					}
+				});
+				if(exist == 0){
+					$('#member_list .container').append("<div id='error_mes' style='text-align:center;height:300px;'>查無會員資料<div>");
+				}
+			}
+		});
+	</script>
+</body>
+</html>

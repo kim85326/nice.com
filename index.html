@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>台東民宿協會</title>
+	<script type='text/javascript' src='https://traiwan.com/library/jquery/base/jquery-1.10.2.min.js?v=1438571031'></script>
+	<script type='text/javascript' src='https://traiwan.com/library/jquery/base/jquery-migrate-1.2.1.min.js?v=1438571031'></script>
+	<script type='text/javascript' src='https://traiwan.com/library/jquery/ui/jquery-ui-1.11.4.min.js?v=1438571031'></script>
+	<script type='text/javascript' src='https://traiwan.com/library/jquery/jquery_confirm/jquery.dialogOptions.js?v=1497079877'></script>
+	<link type ='text/css' rel='stylesheet' href='https://traiwan.com/library/jquery/ui/css/traiwan-v6/jquery-ui-1.11.4.min.css?v=1438571031'/>
+	<link type ='text/css' rel='stylesheet' href='https://traiwan.com/library/fontawesome/css/font-awesome.min.css'/>
+	<script type='text/javascript' src='https://traiwan.com/library/bootstrap/base/js/bootstrap.min.js?v=1456793019'></script>
+	<link type ='text/css' rel='stylesheet' href='https://traiwan.com/library/bootstrap/base/css/traiwan_bootstrap_hack_previous.css?v=1458910741'/>
+	<link type ='text/css' rel='stylesheet' href='https://traiwan.com/library/bootstrap/base/css/bootstrap.min.css?v=1484734235'/>
+	<link type ='text/css' rel='stylesheet' href='https://traiwan.com/library/bootstrap/base/css/traiwan_bootstrap_hack_after.css?v=1458910741'/>
+	<link type ='text/css' rel='stylesheet' href='https://traiwan.com/library/bootstrap/base/css/google_fonts.css?v=1456793019'/>
+	<style>
+		/********** navbar **********/
+		.navbar {
+			min-height: 70px;
+			margin-bottom: 0px;
+			background-color: rgba(64,110,162, 0.5);
+			border: none;
+		}
+		.navbar-brand {
+			padding-top: 30px;
+			padding-left: 50px;
+			height: auto;
+		}
+		.navbar-brand div:nth-child(1) {
+			font-weight: bold;
+			letter-spacing: 3px;
+			font-size: 24px;
+		}
+		.navbar-brand div:nth-child(2) {
+			margin-top: 5px;
+			letter-spacing: 2px;
+			font-size: 14px;
+		}
+		.navbar-default .navbar-brand {
+			color: white;
+		}
+		.navbar-default .navbar-nav>li>a {
+			font-weight: bold;
+			letter-spacing: 2px;
+			color: white;
+		}
+		.navbar-default .navbar-toggle {
+			padding-top: 30px;
+			border-color: transparent;
+		}
+		.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+			background-color: transparent;
+		}
+		.navbar-default .navbar-toggle .icon-bar {
+			background-color: white;
+		}
+		/********** carousel **********/
+		.carousel {
+			position: relative;
+		}
+		.carousel img {
+			width: 100%;
+			max-height: 800px;
+		}
+		
+		#header_hint {
+			background-color: rgba(255 , 255 , 255 , 0.5);
+			color: #406ea2;
+			position: absolute;
+			top: 40%;
+			left: 20%;
+			letter-spacing: 3px;
+		}
+		#header_hint p {
+			padding: 20px 30px;
+			margin-bottom: 0;
+			font-size: 20px;
+		}
+		/********** section **********/
+		.title {
+			margin: 60px auto;
+			text-align: center;
+			background-color: #406ea2;
+			color: #fff;
+			font-weight: bold;
+			width: 200px;
+			height: 35px;
+			line-height: 35px;
+			letter-spacing: 3px;
+		}
+
+		.more {
+			text-align: center;
+		}
+
+		.more>a {
+			color: #406ea2;
+		}
+
+		section>div{
+			padding-bottom: 60px;
+		}
+
+		section>div:nth-child(odd){
+			background-color: #f2f9fd;
+		}
+
+		#information {
+			letter-spacing: 2px;
+		}
+		
+		.directors_profile {
+			height: 150px;
+			margin-bottom: 20px;
+		}
+
+		.directors_photo {
+		    width: 130px;
+    		float: right;
+		}
+
+		.directors_right {
+			padding-left: 0;
+		}
+
+		.job_title {
+			padding-top: 10px;
+			color: #406ea2;
+			font-weight: bold;
+		}
+
+		.directors_name {
+			font-size: 18px;
+			margin-bottom: 5px;
+		}
+
+		.directors_phone , .directors_address {
+			font-size: 15px;
+		}
+
+		.thumbnail{
+			height: 300px;
+			border: none;
+			background-color: transparent;
+		}
+
+		.thumbnail img{
+			width: 100%;
+		}
+		
+		#contact {
+			line-height: 30px;
+			letter-spacing: 3px;
+		}
+		
+		#contact_name {
+			color: #406ea2;
+			font-weight: 900;
+			margin-bottom: 20px;
+		}
+
+		.contact_left {
+			font-weight: bold;
+		}
+
+		/********** footer **********/
+
+		#contact_icon {
+			margin: 60px auto;
+			text-align: center;
+			cursor: pointer;
+		}
+
+		#contact_icon img {
+			width: 30px;
+			margin-right: 15px;
+			margin-left: 15px;
+		}
+
+		#footer_bottom {
+			height: 50px;
+			line-height: 49px;
+			text-align: center;
+			background-color: #406ea2;
+		}
+		#footer_bottom a {
+			color: white;
+			text-decoration: none;
+			letter-spacing: 2px;
+			font-size: 1.5rem;
+		}
+
+		/********** 電腦版微調 **********/	
+		@media screen and (min-width: 768px){
+			.navbar-nav>li>a{
+				padding-top: 35px
+			}
+			.navbar-right {
+				margin-right: 30px;
+			}
+		}
+
+		/********** 手機版微調 **********/
+		@media screen and (max-width: 480px){
+			.navbar-brand {
+				padding-left: 30px;
+			}
+			.thumbnail{
+				height: 260px;
+			}
+		}
+		
+		/********** 平板微調 **********/
+		@media screen and (min-width: 481px) and (max-width: 767px){
+			.directors_photo {
+				width: 120px;
+			}
+			.thumbnail{
+				height: 350px;
+			}
+		}
+
+	</style>	
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-default navbar-fixed-top">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="./index.html">
+		      	<div>台東民宿協會</div>
+		      	<div>Taitung Homestay Accociation</div>
+		      </a>
+		    </div>
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="./index.html#information">協會簡介</a></li>
+		        <li><a href="./data/組織章程.pdf" target="_blank">組織章程</a></li>
+		        <li><a href="./directors.html">理監事名冊</a></li>
+		        <li><a href="./member_list.html">會員名冊</a></li>
+		        <li><a href="./index.html#contact">聯絡協會</a></li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+		<div class="container-fuild">
+			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+				</ol>
+
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
+					<div class="item active">
+						<img src="./data/image/background1.jpg" alt="...">
+						<div class="carousel-caption">
+						</div>
+					</div>
+					<div class="item">
+						<img src="./data/image/background2.jpg" alt="...">
+						<div class="carousel-caption">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="header_hint" class="hidden-xs">
+			<p>
+				一起去台東<br>
+				體驗生活的美好
+			</p>
+		</div>
+	</header>
+
+	<section>
+		<div id="information">
+			<div class="container">
+				<div class="title">協會簡介</div>
+				<div class="row">
+					<div class="col-sm-8 col-sm-push-2">
+						<p>
+							民國八十六年經濟部中小企業處為輔導地方特色產業發展，以繁榮地方經濟為目標，特引用日本企業界異業合作借腦經營交流的精神，責由台東縣工業發展投資策進會輔導成立『台東縣民宿合作交流會』。<br><br>
+							『台東縣民宿合作交流會』在工策會鄭前總幹事永霖帶領下，協同創會會長郭金田及歷屆會長翁源枝、陳聰城、鄭春喜、宋彥雄、李天財、余和宗、沈鳳蘭、劉欣鳳、李榮結等各級幹部的犧牲奉獻精神，與會員共同的努力合作，才有今天的成就。<br><br>
+							十多年來從無到有，我們經歷了摸索、學習、猶疑、激勵甚至打擊，一路走來顛簸困阨，終於我們超越障礙，排除萬難，登上峰頂。回首來時路，你我心中應是無限感慨，也為自己的努力付出滿心欣慰。<br><br>
+							如欲加入台東民宿協會，可參考<a href="./data/組織章程.pdf" target="_blank">組織章程</a>。
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="directors">
+			<div class="container">
+				<div class="title">理監事名冊</div>
+				<div class="row">
+					<div class="col-sm-10 col-sm-push-1">
+						<div class="row">
+							<div class="col-sm-6 directors_profile">
+								<div class="row">
+									<div class="col-xs-6">
+										<img src="./data/image/boy_copy.png" alt="..." class="img-circle directors_photo">
+									</div>
+									<div class="col-xs-6 directors_right">
+										<div class="job_title">理事長</div>
+										<div class="directors_name">余和宗</div>
+										<div class="directors_phone">
+											089-311950<br>
+											0910-724845
+										</div>
+										<div class="directors_address">
+											台東市志航路一段412巷26弄1號
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6 directors_profile">
+								<div class="row">
+									<div class="col-xs-6">
+										<img src="./data/image/boy_copy.png" alt="..." class="img-circle directors_photo">
+									</div>
+									<div class="col-xs-6 directors_right">
+										<div class="job_title">常務理事</div>
+										<div class="directors_name">林寶泉</div>
+										<div class="directors_phone">
+											238101<br>
+											0986-776900
+										</div>
+										<div class="directors_address">
+											台東市興盛路349號
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6 directors_profile">
+								<div class="row">
+									<div class="col-xs-6">
+										<img src="./data/image/boy_copy.png" alt="..." class="img-circle directors_photo">
+									</div>
+									<div class="col-xs-6 directors_right">
+										<div class="job_title">常務理事</div>
+										<div class="directors_name">林文淵</div>
+										<div class="directors_phone">
+											232303<br>
+											0912-789536
+										</div>
+										<div class="directors_address">
+											台東市志航路三段103號
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6 directors_profile">
+								<div class="row">
+									<div class="col-xs-6">
+										<img src="./data/image/girl_copy.png" alt="..." class="img-circle directors_photo">
+									</div>
+									<div class="col-xs-6 directors_right">
+										<div class="job_title">理事</div>
+										<div class="directors_name">朱淑珍</div>
+										<div class="directors_phone">
+											841639<br>
+											0937-608918
+										</div>
+										<div class="directors_address">
+											台東市成功鎮信義里22鄰豐田路27-5號
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="more"><a href="./directors.html">查看更多...</a></div>
+			</div>
+		</div>
+		<div id="member_list">
+			<div class="container">
+				<div class="title">會員名冊</div>
+				<div class="row">
+					<div class="col-md-8 col-md-push-2">
+						<div class="row">
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/台東百分百渡假民宿.gif" alt="台東百分百渡假民宿">
+									<div class="caption">
+										<h5>
+											台東百分百渡假民宿
+										</h5>
+										<p>
+											089-229776<br>
+											台東縣台東市新站三街100號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/台東馬亨亨民宿.gif" alt="台東馬亨亨民宿">
+									<div class="caption">
+										<h5>
+											台東馬亨亨民宿
+										</h5>
+										<p>
+											0921-250249(中華)<br>
+											台東縣台東市志航路412巷26弄27號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/台東諾園民宿.gif" alt="台東諾園民宿">
+									<div class="caption">
+										<h5>
+											台東諾園民宿
+										</h5>
+										<p>
+											089-226455<br>
+											台東縣台東市志航路一段552巷73號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/台東涵園民宿.gif" alt="台東涵園民宿">
+									<div class="caption">
+										<h5>
+											台東涵園民宿
+										</h5>
+										<p>
+											089-550616<br>
+											台東縣鹿野鄉龍田村南三路115號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/台東星棧101民宿.gif" alt="台東星棧101民宿">
+									<div class="caption">
+										<h5>
+											台東星棧101民宿
+										</h5>
+										<p>
+											089-238101<br>
+											台東縣台東市興盛路349號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-4 member">
+								<div class="thumbnail">
+									<img src="./data/member_list/台東歡喜精品雙併別墅.gif" alt="台東歡喜精品雙併別墅">
+									<div class="caption">
+										<h5>
+											台東歡喜精品雙併別墅
+										</h5>
+										<p>
+											0918-483577<br>
+											台東縣台東市豐榮路90巷23號<br>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="more"><a href="./member_list.html">查看更多...</a></div>
+			</div>
+		</div>
+		<div id="contact">
+			<div class="container">
+				<div class="title">聯絡協會</div>
+				<div class="row">
+					<div class="col-xs-8 col-md-6 col-xs-push-3 col-md-push-4">
+						<div class="row">
+							<div class="col-sm-12" id="contact_name">
+								臺東縣休閒度假民宿協會
+							</div>
+							<div class="col-sm-3 contact_left">
+								團體類別
+							</div>
+							<div class="col-sm-9">
+								人民團體編號3473
+							</div>
+							<div class="col-sm-3 contact_left">
+								成立日期
+							</div>
+							<div class="col-sm-9">
+								民國95年10月30日
+							</div>
+							<div class="col-sm-3 contact_left">
+								立案編號
+							</div>
+							<div class="col-sm-9">
+								府社行字第0950082365號
+							</div>
+							<div class="col-sm-3 contact_left">
+								登記會址
+							</div>
+							<div class="col-sm-9">
+								台東縣境內
+							</div>
+							<div class="col-sm-3 contact_left">
+								現有會員
+							</div>
+							<div class="col-sm-9">
+								120人
+							</div>
+							<div class="col-sm-3 contact_left">
+								實務人員
+							</div>
+							<div class="col-sm-9">
+								3人
+							</div>
+							<div class="col-sm-3 contact_left">
+								通訊處
+							</div>
+							<div class="col-sm-9">
+								950 台東市洛陽街219巷2弄4號
+							</div>
+							<div class="col-sm-3 contact_left">
+								屆別
+							</div>
+							<div class="col-sm-9">
+								第五屆理監事任期二年<br>
+								自104年04月01日起
+								至105年03月31日止
+							</div>
+							<div class="col-sm-3 contact_left">
+								會員代表
+							</div>
+							<div class="col-sm-9">
+								余和宗 (0910-724-845)
+							</div>
+							<div class="col-sm-3 contact_left">
+								總幹事
+							</div>
+							<div class="col-sm-9">
+								翁源枝 (0932-661-688)
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<div id="contact_icon">
+			<a href="" target="_blank" id="fb_link">
+				<img src="./data/image/facebook.png" alt="facebook link">
+			</a>
+		<!-- <a href="" id="instagram_link">
+			<img src="./data/image/instagram.png" alt="instagram link">
+		</a> -->
+		<!-- <a href="" id="twitter">
+			<img src="./data/image/twitter.png" alt="twitter link">
+		</a> -->
+			<a href="" id="mail_link">
+				<img src="./data/image/mail.png" alt="mail link">
+			</a>
+			<a href="" id="phone_link">
+				<img src="./data/image/phone.png" alt="phone link">
+			</a>
+		</div>
+		<div id="footer_bottom">
+			<div class="container">
+				<a href="https://traiwan.com">
+					TRAIWAN 雲端旅宿系統提供
+					<span class="hidden-xs">©2018 創炎資訊科技 Xaduro Inc. All Rights Reserved</span>
+				</a>
+			</div>
+		</div>
+	</footer>
+
+
+	<script>
+		$('.carousel').carousel({
+			interval: 3000
+		});
+	</script>
+</body>
+</html>
